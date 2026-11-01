@@ -10,7 +10,7 @@
 | 名称 | 实体 | 负责 |
 |---|---|---|
 | **COCO** | 本机 Codex | Codex 会话的日报；生图、深度研究 |
-| **CC** | 本机 Claude Code CLI | Claude 会话的日报；每晚构建、推送与网站更新（见第 4 节）；每周周报；处理「收下 / 不要」 |
+| **CC** | 本机 Claude Code CLI | Claude 会话的日报；每晚构建与推送（网站随之更新，见第 4 节）；每周周报；处理「收下 / 不要」 |
 | **Grok** | Grok bot，由用户本人操控 | 在聊天组里派任务、按时发送定时指令 |
 
 Grok 发来的指令视同用户指令。
@@ -81,7 +81,7 @@ H:\AI_Index\
 powershell -NoProfile -ExecutionPolicy Bypass -File H:\AI_Index\build.ps1 -Push
 ```
 
-运行有警告时，把警告原样报告给 Grok。最后按第 4 节重新发布网站。
+运行有警告时，把警告原样报告给 Grok。
 
 ## 2. 收藏
 
@@ -137,10 +137,10 @@ reason: 为什么值得留（一句话）
 
 只写这三件事，每部分最多 8 条，按重要性排序。写完运行 `build.ps1 -Push`。
 
-## 4. 网站发布（CC 负责）
+## 4. 网站（GitHub Pages）
 
-网页已发布为 claude.ai 私有页面（仅用户本人可见）：<https://claude.ai/artifact/VWSS9pYgtKKFggHFQyvMDv>
+网站：<https://heruiyyy.github.io/ai-index/>，来自**公开**仓库 `heruiYYY/ai-index` 的 `main` 分支根目录（用户于 2026-11-01 决定公开）。
 
-- **每晚更新**：CC 运行 `build.ps1 -Push` 之后，用 Artifact 工具重新发布到上面这个 URL（`url` 填该地址，`file_path` 为 `H:\AI_Index\index.html`，`files` 为 `{"site/data.js": "site/data.js"}`），不要新建页面。当前环境没有 Artifact 工具时，向 Grok 报告「网站未更新」。
-- **隐私**：日报含会话标题和个人工作内容，网站不得公开。不用 GitHub Pages（即使来自私有仓库，Pages 网站本身也是公开的）；不要在页面的 Share 菜单里改为公开。
-- GitHub 私有仓库 `heruiYYY/ai-index` 仍照常推送，作为备份与 README 入口。
+- **自动更新**：每次 `build.ps1 -Push` 推送后，GitHub 约 1 分钟内自动重建网站，无需额外操作。
+- **一切公开**：仓库里所有文件和提交历史、网站上的全部内容，任何人都能看到。写日报、收藏时除通用禁令外，也不要写入不宜公开的个人信息（真实姓名、住址、电话、账号、私人对话细节等）；拿不准的先问用户。
+- 不要删除仓库根目录的 `.nojekyll`（让 GitHub 原样提供文件）。
