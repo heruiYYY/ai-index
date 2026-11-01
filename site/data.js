@@ -1,4 +1,4 @@
-window.INDEX_DATA = {"built":"2026-11-01 14:34","daily":[{
+window.INDEX_DATA = {"built":"2026-11-01 17:08","daily":[{
   "date": "2026-11-01",
   "bot": "CC",
   "generated": "2026-11-01T11:36+08:00",
@@ -82,4 +82,32 @@ window.INDEX_DATA = {"built":"2026-11-01 14:34","daily":[{
   ],
   "pending": [],
   "candidates": []
-}],"weekly":[],"candidates":[{"id":"2026-11-01-coco-01","title":"修罗宗门电影 CG 场景概念设计（定稿提示词）","bot":"COCO","date":"2026-11-01","category":"提示词","status":"pending","source":"codex://threads/01a194f9-1fc6-75a3-8928-01791ea18f86","reason":"当日定稿的场景提示词，含负面提示词，可直接复用","body":"（迁移首日示例：原文请 COCO 从原对话补入此处。以后提名时，机器人会把原文直接写在这里。）","file":"data/candidates/2026-11-01-coco-01.md"}],"favorites":[],"warnings":[]};
+}],"weekly":[{
+  "week": "2026-11-01",
+  "from": "2026-10-25 17:00",
+  "to": "2026-11-01 17:00",
+  "generated": "2026-11-01T17:08+08:00",
+  "done": [
+    {"bot": "CC", "text": "Rui Claude Code CLI 登录验收（2.1.302／Pro），移除极川接口，明确不接 OpenCode"},
+    {"bot": "CC", "text": "建「Claude Code 联调」「任务跟踪」会议室，确认 CC／COCO 协作边界与改名 CC 提示词职责"},
+    {"bot": "COCO", "text": "修罗宗门电影 CG 场景概念设计提示词定稿（含负面提示词）"},
+    {"bot": "COCO", "text": "Higgsfield 电影短片学习包迁入索引（完整学习文档／34 条拆解／媒体索引等）"},
+    {"bot": "CC", "text": "地渊醉翁vs暗紫巫师约 68 秒高燃战斗提示词交付（Claude Code）"},
+    {"bot": "CC", "text": "地渊醉翁vs暗紫巫师 Seedance≤30s 战斗提示词清洁 UTF-8 交付"},
+    {"bot": "CC", "text": "百度网盘 0001 素材分析.md 与男主表情与对白分析.md 写入约定目录"},
+    {"bot": "CC", "text": "H:\\AI_Index 统一索引与 GitHub Pages（heruiyyy.github.io/ai-index）上线；Git／定时周报链路可用"}
+  ],
+  "todo": [
+    {"bot": "CC", "text": "候选收藏「修罗宗门…」2026-11-01-coco-01 待用户「收下／不要」；正文仍为迁移占位"},
+    {"bot": "CC", "text": "「Claude Code 任务跟踪」会议室正文转写仍空，进度回传室尚未可用"},
+    {"bot": "CC", "text": "高燃战斗跨机／百度网盘素材转交曾暂停清理，稳定传素材到 Rui 的流程未固化"},
+    {"bot": "CC", "text": "Claude Code 中文输出 UTF-8 编码偶发异常，清洁重出流程仍需继续压测"}
+  ],
+  "keep": [
+    {"bot": "COCO", "text": "修罗宗门电影 CG 场景概念设计（定稿提示词）· 2026-11-01-coco-01"},
+    {"bot": "COCO", "text": "Higgsfield 电影短片完整学习文档／学习包（迁入成果，尚无正式收藏 ID）"},
+    {"bot": "CC", "text": "地渊醉翁vs暗紫巫师 Seedance≤30s 战斗提示词 · battle-30s-Seedance-prompt.md"},
+    {"bot": "CC", "text": "地渊醉翁vs暗紫巫师约 68 秒高燃战斗提示词 · battle-1min-READY.md"},
+    {"bot": "CC", "text": "0001 素材分析.md 与男主表情与对白分析.md（MAC-to-WIN\\0001）"}
+  ]
+}],"candidates":[{"id":"2026-11-01-coco-01","title":"修罗宗门电影 CG 场景概念设计（定稿提示词）","bot":"COCO","date":"2026-11-01","category":"提示词","status":"pending","source":"codex://threads/01a194f9-1fc6-75a3-8928-01791ea18f86","reason":"当日定稿的场景提示词，含负面提示词，可直接复用","body":"（迁移首日示例：原文请 COCO 从原对话补入此处。以后提名时，机器人会把原文直接写在这里。）","file":"data/candidates/2026-11-01-coco-01.md"}],"favorites":[],"warnings":[]};
