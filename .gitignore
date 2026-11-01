@@ -3,3 +3,6 @@
 *.bak
 Thumbs.db
 desktop.ini
+
+# 本机 Claude Code 权限设置，不上传
+.claude/settings.local.json
