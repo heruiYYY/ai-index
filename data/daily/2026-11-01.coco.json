@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-01",
+  "bot": "COCO",
+  "generated": "2026-11-01T11:36+08:00",
+  "migrated": true,
+  "summary": "修罗宗门场景提示词定稿；Codex CLI 冒烟与 Guardian 安全评估完成；首日迁入此前全部成果。",
+  "sessions": [
+    {"time": "10:26", "title": "运维 · Codex CLI 冒烟（Reply OK）", "id": "01a194ee-0848-7810-b125-3eca1e70dfe5", "link": "codex://threads/01a194ee-0848-7810-b125-3eca1e70dfe5"},
+    {"time": "10:32", "title": "运维 · Guardian review 安全评估", "id": "01a194f2-f1d6-7f81-ac5e-f2d5fd2d409a", "link": "codex://threads/01a194f2-f1d6-7f81-ac5e-f2d5fd2d409a"},
+    {"time": "10:38–10:53", "title": "★ 提示词 · 修罗宗门", "id": "01a194f9-1fc6-75a3-8928-01791ea18f86", "link": "codex://threads/01a194f9-1fc6-75a3-8928-01791ea18f86"},
+    {"time": "10:41", "title": "提示词 · 宗门初稿", "id": "01a194fb-87ee-7542-8163-3b0c48420490", "link": "codex://threads/01a194fb-87ee-7542-8163-3b0c48420490"}
+  ],
+  "outputs": [
+    {"category": "研究与课程", "name": "Higgsfield 电影短片学习", "status": "ok", "since": "11-01 前",
+     "output": "完整学习文档（HTML / MD）、学习包 zip、34 条提示词拆解、YouTube 章节笔记、媒体索引 CSV + 验证截图、原文提示词素材 MD",
+     "links": [["学习目录", "file:///C:/Users/Administrator/Documents/ChatGPT/学习/Higgsfield_Cinematic_Study/"], ["HTML", "file:///C:/Users/Administrator/Documents/ChatGPT/学习/Higgsfield_Cinematic_Study/Higgsfield_电影短片_完整学习文档.html"], ["素材源", "file:///C:/Users/Administrator/Documents/MJ_Prompts/Higgsfield_Cinematic_AI_Short_Film_提示词与媒体.md"], ["原对话", "codex://threads/01a178db-8435-7123-8865-d29e2653a604"]]},
+    {"category": "研究与课程", "name": "国漫高燃战斗表现研究", "status": "arch", "since": "11-01 前", "output": "战斗镜头 / 表现力方向讨论",
+     "links": [["原对话", "codex://threads/01a17de7-ad5a-7750-a811-97bb0e5e2345"]]},
+    {"category": "研究与课程", "name": "课程案例上传工作区", "status": "arch", "since": "11-01 前", "output": "下载课程案例并上传到可读空间",
+     "links": [["原对话", "codex://threads/01a126bd-0db4-7cf3-b215-cca350eee671"]]},
+    {"category": "提示词", "name": "★ 修罗宗门电影 CG 场景概念设计", "status": "ok", "since": "11-01",
+     "output": "国漫 / 玄幻场景提示词：非对称构图、纵深、宏大叙事，含负面提示词（由通用「宗门」改写为修罗气质）",
+     "links": [["原对话", "codex://threads/01a194f9-1fc6-75a3-8928-01791ea18f86"]]},
+    {"category": "提示词", "name": "宗门电影 CG 场景概念设计（初稿）", "status": "draft", "since": "11-01", "output": "同主题初版，独立线程，已被上一条取代",
+     "links": [["原对话", "codex://threads/01a194fb-87ee-7542-8163-3b0c48420490"]]},
+    {"category": "提示词", "name": "小灯童角色", "status": "arch", "since": "11-01 前", "output": "角色提示词设计",
+     "links": [["原对话", "codex://threads/01a04e7b-b003-7110-a0d4-00f1c6388048"]]},
+    {"category": "提示词", "name": "掌灯元君", "status": "arch", "since": "11-01 前", "output": "提示词 / 角色设定",
+     "links": [["原对话", "codex://threads/01a04db3-6499-7f23-9c66-2cfc4920ba14"]]},
+    {"category": "提示词", "name": "Cinedance / Higgsfield acting 系统提示组合", "status": "arch", "since": "11-01 前", "output": "-higgsfield / acting / environmental 提示组合",
+     "links": [["原对话", "codex://threads/01a04d24-3963-7000-a53a-93a0e3e517bf"]]},
+    {"category": "项目", "name": "灯火仙子故事成立性", "status": "arch", "since": "11-01 前", "output": "故事假设与结构讨论（仙子 / 灯火种等）",
+     "links": [["原对话", "codex://threads/01a04cd7-98e6-77d1-b7d2-b3ff3cc92da9"]]},
+    {"category": "项目", "name": "短剧本 / 写故事 Skill 寻访", "status": "arch", "since": "11-01 前", "output": "短剧本、网络故事类 Skill 推荐",
+     "links": [["原对话", "codex://threads/01a04c92-353b-7922-a1d6-86c3621d44bd"]]},
+    {"category": "工具", "name": "Skill 安装 / 列表查询", "status": "arch", "since": "11-01 前", "output": "本机 skill 安装与查看",
+     "links": [["安装", "codex://threads/01a043ae-c2cc-7a41-86df-256ac61e4267"], ["列表", "codex://threads/019fdce9-32e0-7702-beba-b8f105f155de"]]},
+    {"category": "运维", "name": "Codex CLI 冒烟 / Guardian 评估 / 更新 Codex", "status": "arch", "since": "11-01", "output": "均已完成，无可复用产出",
+     "links": [["冒烟", "codex://threads/01a194ee-0848-7810-b125-3eca1e70dfe5"], ["Guardian", "codex://threads/01a194f2-f1d6-7f81-ac5e-f2d5fd2d409a"], ["更新", "codex://threads/01a126ba-8ef0-7043-bec8-40c33f322b92"]]}
+  ],
+  "pending": [],
+  "candidates": []
+}

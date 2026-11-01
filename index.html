@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>双机器人成果索引</title>
+<style>
+:root{
+  --bg:#f4f3f0; --card:#ffffff; --ink:#1d1d1f; --muted:#6b6b70; --faint:#9a9893; --line:#e6e4de;
+  --accent:#b4532a; --coco:#2f6fdb; --coco-bg:#e8f0fd; --cc:#a3489c; --cc-bg:#f6e9f5;
+  --ok:#2e8b57; --wip:#c48a12; --draft:#6b6b70; --arch:#8a8780; --rule:#4b6bb0;
+  --chip:#ecebe6; --shadow:0 1px 2px rgba(0,0,0,.04),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151517; --card:#1f1f22; --ink:#ececee; --muted:#9a9aa1; --faint:#6e6e75; --line:#2f2f34;
+    --accent:#e0824f; --coco:#7aa7f5; --coco-bg:#1d2a42; --cc:#d98ad2; --cc-bg:#3a2238;
+    --ok:#5cc58a; --wip:#e5b84a; --draft:#9a9aa1; --arch:#8a8780; --rule:#8aa6e6;
+    --chip:#2a2a2e; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151517; --card:#1f1f22; --ink:#ececee; --muted:#9a9aa1; --faint:#6e6e75; --line:#2f2f34;
+  --accent:#e0824f; --coco:#7aa7f5; --coco-bg:#1d2a42; --cc:#d98ad2; --cc-bg:#3a2238;
+  --ok:#5cc58a; --wip:#e5b84a; --draft:#9a9aa1; --arch:#8a8780; --rule:#8aa6e6;
+  --chip:#2a2a2e; --shadow:none;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.6 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:ui-monospace,Consolas,"Cascadia Code",monospace;font-size:.86em}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 64px}
+.narrow{max-width:760px;margin-left:auto;margin-right:auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.muted{color:var(--muted)}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+.warn{border-color:var(--wip);padding:10px 14px;color:var(--wip);font-size:13.5px;margin-top:14px}
+
+/* 顶部 */
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+header h1{margin:0;font-size:20px;letter-spacing:.3px}
+header .meta{color:var(--muted);font-size:12.5px}
+.theme{border:1px solid var(--line);background:var(--card);color:var(--muted);flex:none;
+  border-radius:8px;padding:4px 10px;font:inherit;font-size:12.5px;cursor:pointer}
+nav.tabs{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;gap:4px;
+  margin-top:14px;padding:8px 0;border-bottom:1px solid var(--line);overflow-x:auto}
+nav.tabs button{border:0;background:none;color:var(--muted);font:inherit;font-size:14.5px;
+  padding:6px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+nav.tabs .badge{display:inline-block;min-width:18px;padding:0 5px;margin-left:4px;border-radius:999px;
+  background:var(--accent);color:#fff;font-size:11px;line-height:18px;text-align:center}
+.view{margin-top:22px}
+.view[hidden]{display:none}
+h2.sec{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.5px;margin:28px 0 10px}
+
+/* 标识 */
+.src{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;white-space:nowrap;vertical-align:1px}
+.src.COCO{color:var(--coco);background:var(--coco-bg)}
+.src.CC{color:var(--cc);background:var(--cc-bg)}
+.st.ok{color:var(--ok)} .st.wip{color:var(--wip)} .st.draft{color:var(--draft)}
+.st.arch{color:var(--arch)} .st.rule{color:var(--rule)}
+
+/* 报告式首屏 */
+.hero{padding:26px 28px}
+.hero .kicker{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:13px}
+.hero .kicker select{font:inherit;font-size:13px;padding:2px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.navbtn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:0 9px;cursor:pointer;font:inherit;line-height:24px}
+.hero h2{font-size:30px;line-height:1.25;margin:10px 0 14px;letter-spacing:.5px}
+.hero .story p{margin:0 0 8px;font-size:16.5px;line-height:1.75}
+.hero .story p .src{margin-right:8px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:22px;border-top:1px solid var(--line)}
+.kpi{padding:16px 16px 4px 0}
+.kpi + .kpi{padding-left:16px;border-left:1px solid var(--line)}
+.kpi .n{font-size:36px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.kpi .n small{font-size:15px;font-weight:600;color:var(--accent);margin-left:2px}
+.kpi .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+
+/* 两栏机器人明细 */
+.botcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.bot{padding:14px 18px}
+.bot.COCO{border-top:3px solid var(--coco)} .bot.CC{border-top:3px solid var(--cc)}
+.bot h3{margin:0 0 4px;font-size:14px;display:flex;gap:8px;align-items:center}
+.bot h3 span.g{font-weight:400;color:var(--faint);font-size:12px}
+.bot h4{margin:12px 0 4px;font-size:12px;color:var(--muted);font-weight:600}
+.bot ul{margin:0;padding:0;list-style:none;font-size:13.5px}
+.bot li{padding:4px 0;border-bottom:1px dashed var(--line)}
+.bot li:last-child{border-bottom:0}
+.bot .tm{color:var(--faint);font-variant-numeric:tabular-nums;margin-right:6px;font-size:12.5px}
+.bot .sub{display:block;font-size:12.5px;color:var(--muted)}
+.missing{color:var(--muted);font-style:italic}
+
+/* 周报三栏 */
+.weekgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.weekgrid .card{padding:14px 18px}
+.weekgrid h3{margin:0 0 8px;font-size:14.5px}
+.weekgrid ul{margin:0;padding-left:18px;font-size:13.5px}
+.weekgrid li{margin:5px 0}
+.daylist .d{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px 18px;border-bottom:1px solid var(--line)}
+.daylist .d:last-child{border-bottom:0}
+.daylist .d a{font-weight:600;font-variant-numeric:tabular-nums}
+.daylist .d div div{font-size:13.5px;margin:2px 0}
+
+/* 极简列表 */
+.search{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px}
+.search input{flex:1;min-width:0;border:0;outline:0;background:none;color:var(--ink);font:inherit}
+.search .cnt{color:var(--faint);font-size:12.5px;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--muted);font:inherit;font-size:12.5px;
+  padding:3px 11px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips .sep{width:1px;background:var(--line);margin:2px 4px}
+.list{margin-top:14px;overflow:hidden}
+.list .gh{padding:14px 18px 6px;font-size:12px;font-weight:600;color:var(--faint);letter-spacing:.5px;
+  display:flex;justify-content:space-between}
+details.item{border-top:1px solid var(--line)}
+.list .gh + details.item{border-top:0}
+details.item summary{list-style:none;cursor:pointer;display:grid;
+  grid-template-columns:22px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 18px}
+details.item summary::-webkit-details-marker{display:none}
+details.item summary:hover{background:var(--chip)}
+details.item .ic{font-size:14px;text-align:center}
+details.item .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14.5px}
+details.item .nm .src{margin-left:6px}
+details.item .rt{color:var(--faint);font-size:12.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+details.item .bd{padding:2px 18px 14px 50px;font-size:13.5px;color:var(--muted)}
+details.item .bd .links{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px}
+details.item .bd .dt{margin-top:8px;padding:8px 12px;background:var(--chip);border-radius:8px;word-break:break-all;font-size:12.5px}
+details.item[open] summary{background:var(--chip)}
+.legend{color:var(--faint);font-size:12px;margin-top:10px;text-align:center}
+
+/* 收藏卡片 */
+.hint{color:var(--muted);font-size:13px;margin:-2px 0 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.fav{padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.fav.pending{border:1.5px dashed var(--accent)}
+.fav .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.fav .cat{font-size:11.5px;color:var(--faint);letter-spacing:.3px}
+.fav .title{font-weight:650;font-size:15px;line-height:1.4}
+.fav .reason{font-size:13px;color:var(--muted)}
+.fav .peek{font:12.5px/1.6 ui-monospace,Consolas,monospace;color:var(--muted);background:var(--chip);
+  border-radius:8px;padding:8px 10px;white-space:pre-wrap;word-break:break-word;
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.fav .foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 8px;margin-top:auto;padding-top:4px;font-size:12px;color:var(--faint)}
+.fav .acts{display:flex;gap:6px;margin-left:auto}
+.fav:has(details[open]) .peek{display:none}
+.fav pre{white-space:pre-wrap;word-break:break-word;background:var(--chip);border-radius:8px;
+  padding:10px 12px;font:12.5px/1.6 ui-monospace,Consolas,monospace;margin:0;max-height:420px;overflow:auto}
+.fav details summary{cursor:pointer;color:var(--accent);font-size:12.5px}
+.btn{border:1px solid var(--line);background:var(--chip);color:var(--muted);
+  border-radius:999px;font:inherit;font-size:12px;padding:2px 10px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.done{color:var(--ok)}
+.favgroup h3{font-size:13px;color:var(--muted);margin:20px 0 10px;font-weight:600}
+
+/* 分工与入口 */
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.role{padding:12px 16px}
+.role h3{margin:0 0 4px;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.role ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+.role.coco{border-top:3px solid var(--coco)} .role.cc{border-top:3px solid var(--cc)}
+.role.rules{border-top:3px solid var(--accent)}
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.quick a.card{display:block;padding:10px 14px;color:var(--ink)}
+.quick a.card:hover{border-color:var(--accent);text-decoration:none}
+.quick .t{font-weight:600;font-size:14px}
+.quick .s{color:var(--muted);font-size:12.5px}
+footer{margin-top:36px;color:var(--faint);font-size:12px;text-align:center}
+
+@media (max-width:640px){
+  .hero{padding:20px 18px}
+  .hero h2{font-size:24px}
+  .hero .story p{font-size:15px}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi:nth-child(3){padding-left:0;border-left:0}
+  .kpi:nth-child(n+3){border-top:1px solid var(--line)}
+  .kpi .n{font-size:30px}
+  details.item summary{padding:9px 14px}
+  details.item .bd{padding-left:46px;padding-right:14px}
+  .daylist .d{grid-template-columns:1fr;gap:2px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>双机器人成果索引</h1>
+    <div class="meta" id="meta">数据加载中…</div>
+  </div>
+  <button class="theme" id="themeBtn" type="button">深浅色</button>
+</header>
+<div id="warnings"></div>
+
+<nav class="tabs" role="tablist">
+  <button role="tab" data-view="day" aria-selected="true">日报</button>
+  <button role="tab" data-view="week" aria-selected="false">本周</button>
+  <button role="tab" data-view="all" aria-selected="false">成果总表</button>
+  <button role="tab" data-view="fav" aria-selected="false">收藏<span class="badge" id="pendBadge" hidden></span></button>
+  <button role="tab" data-view="about" aria-selected="false">分工与入口</button>
+</nav>
+
+<!-- 日报 -->
+<section class="view" id="v-day">
+  <div class="card hero">
+    <div class="kicker">
+      <button class="navbtn" id="prevDay" title="前一天">‹</button>
+      <select id="daySel" aria-label="选择日期"></select>
+      <button class="navbtn" id="nextDay" title="后一天">›</button>
+      <span id="dayInfo"></span>
+    </div>
+    <h2 id="dayTitle"></h2>
+    <div class="story" id="dayStory"></div>
+    <div class="kpis" id="dayKpis"></div>
+  </div>
+  <h2 class="sec">明细</h2>
+  <div class="botcols" id="dayCols"></div>
+</section>
+
+<!-- 本周 -->
+<section class="view" id="v-week" hidden>
+  <div class="card hero">
+    <div class="kicker" id="weekKicker"></div>
+    <h2 id="weekTitle"></h2>
+    <div class="kpis" id="weekKpis"></div>
+  </div>
+  <div id="weekBody" style="margin-top:14px"></div>
+  <h2 class="sec">每日摘要</h2>
+  <div class="card daylist" id="weekDays"></div>
+</section>
+
+<!-- 成果总表 -->
+<section class="view narrow" id="v-all" hidden>
+  <div class="card search">
+    <span aria-hidden="true">🔍</span>
+    <input id="q" type="search" placeholder="搜索成果、产出、链接…">
+    <span class="cnt" id="count"></span>
+  </div>
+  <div class="chips" id="filters">
+    <button class="chip" data-k="src" data-v="all" aria-pressed="true">全部</button>
+    <button class="chip" data-k="src" data-v="COCO" aria-pressed="false">COCO</button>
+    <button class="chip" data-k="src" data-v="CC" aria-pressed="false">CC</button>
+    <span class="sep"></span>
+    <button class="chip" data-k="st" data-v="all" aria-pressed="true">全部状态</button>
+    <button class="chip" data-k="st" data-v="ok" aria-pressed="false">✅ 可用</button>
+    <button class="chip" data-k="st" data-v="wip" aria-pressed="false">🚧 进行中</button>
+    <button class="chip" data-k="st" data-v="rule" aria-pressed="false">📌 约定</button>
+    <button class="chip" data-k="st" data-v="arch" aria-pressed="false">🗄 归档</button>
+  </div>
+  <div class="card list" id="groups"></div>
+  <div class="legend">点任意一行展开详情 · 每项取最近一次日报的状态 · ✅ 可用 🚧 进行中 📝 草稿 📌 约定 🗄 归档</div>
+</section>
+
+<!-- 收藏 -->
+<section class="view" id="v-fav" hidden>
+  <div id="pendWrap">
+    <h2 class="sec" style="margin-top:0">待确认 <span id="pendCount"></span></h2>
+    <div class="hint">点「复制收下」，粘贴给 CC 即转为正式收藏；7 天未确认会自动移走。</div>
+    <div class="cards" id="pendList"></div>
+  </div>
+  <h2 class="sec">收藏库 <span id="favCount"></span></h2>
+  <div class="card search" style="max-width:520px"><span aria-hidden="true">🔍</span><input id="fq" type="search" placeholder="搜索标题与原文…"></div>
+  <div id="favList"></div>
+</section>
+
+<!-- 分工与入口 -->
+<section class="view" id="v-about" hidden>
+  <div class="roles">
+    <div class="card role coco">
+      <h3><span class="src COCO">COCO</span> Codex · 本机</h3>
+      <ul><li>生图、深度研究</li><li>研究与课程、场景 / 角色提示词</li><li>每天 00:00 写日报</li></ul>
+    </div>
+    <div class="card role cc">
+      <h3><span class="src CC">CC</span> Claude Code · Rui</h3>
+      <ul><li>提示词撰写与优化、CLI 维护</li><li>每天 00:20 写日报并推送 GitHub</li><li>每周日 17:00 写周报</li></ul>
+    </div>
+    <div class="card role rules">
+      <h3>📌 共同约定</h3>
+      <ul><li>Grok 统一派任务与定时触发</li><li>不接 OpenCode；不走极川 / Jichuan</li><li>记录不含密钥 / auth / 授权码</li></ul>
+    </div>
+  </div>
+  <div class="quick">
+    <a class="card" href="codex://threads/01a194f9-1fc6-75a3-8928-01791ea18f86">
+      <div class="t">★ 默认续聊：修罗宗门提示词</div><div class="s"><span class="src COCO">COCO</span> Codex CLI 联调时优先 resume</div></a>
+    <a class="card" href="file:///C:/Users/Administrator/Documents/ChatGPT/学习/Higgsfield_Cinematic_Study/">
+      <div class="t">📚 Higgsfield 学习包</div><div class="s"><span class="src COCO">COCO</span> 本机学习目录</div></a>
+    <a class="card" href="agent://782be61b-05c3-4332-b9f9-b6a00b6e5ff1">
+      <div class="t">🤝 Claude Code 联调室</div><div class="s"><span class="src CC">CC</span> 分工下达与确认</div></a>
+    <a class="card" href="agent://bc746830-4a29-4f1e-9bc5-2e4672a457a9">
+      <div class="t">📈 Claude Code 任务跟踪室</div><div class="s"><span class="src CC">CC</span> 进度回传</div></a>
+  </div>
+  <div class="card" style="padding:12px 16px;margin-top:12px;font-size:13px;color:var(--muted)">
+    数据目录 <code>H:\AI_Index\data\</code> · 规则 <code>H:\AI_Index\RULES.md</code> · 构建 <code>H:\AI_Index\build.ps1</code><br>
+    <code>codex://</code> / <code>agent://</code> 为应用内 ID 速记；<code>file://</code> 链接需在本机打开本页才有效。
+  </div>
+</section>
+
+<footer>数据由 CC / COCO 每日 0 点写入，build.ps1 生成</footer>
+</div>
+
+<script src="site/data.js"></script>
+<script>
+const D = window.INDEX_DATA || {built:"", daily:[], weekly:[], candidates:[], favorites:[], warnings:[]};
+const ST = {ok:["✅","可用"], wip:["🚧","进行中"], draft:["📝","草稿"], rule:["📌","约定"], arch:["🗄","归档"]};
+const GROUPS = ["研究与课程","提示词","协作与约定","项目","工具","运维"];
+const BOTS = ["COCO","CC"];
+const WEEKDAY = "日一二三四五六";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const srcBadge = s => `<span class="src ${esc(s)}">${esc(s)}</span>`;
+const linkHtml = ls => (ls||[]).map(([t,h]) => `<a href="${esc(h)}">${esc(t)}</a>`).join("");
+const $ = id => document.getElementById(id);
+const toDate = s => new Date(s + "T00:00:00");
+const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const addDays = (s, n) => { const d = toDate(s); d.setDate(d.getDate() + n); return iso(d); };
+const cnDate = s => { const d = toDate(s); return `${d.getMonth()+1} 月 ${d.getDate()} 日 · 周${WEEKDAY[d.getDay()]}`; };
+const kpi = (n, l, extra = "") => `<div class="kpi"><div class="n">${n}${extra}</div><div class="l">${l}</div></div>`;
+const isNew = o => !(o.since || "").includes("前");
+
+// ---- 头部 ----
+const dates = [...new Set(D.daily.map(r => r.date))].sort().reverse();
+$("meta").textContent = window.INDEX_DATA
+  ? `COCO（Codex）＋ CC（Claude Code） · 最近构建 ${D.built} · 共 ${dates.length} 天记录`
+  : "未找到 site/data.js：请先运行 build.ps1";
+if (D.warnings && D.warnings.length)
+  $("warnings").innerHTML = `<div class="card warn">⚠ 构建提示：${D.warnings.map(esc).join("；")}</div>`;
+
+// ---- 标签页 ----
+function show(view){
+  document.querySelectorAll("nav.tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.view===view));
+  document.querySelectorAll(".view").forEach(v => v.hidden = v.id !== "v-"+view);
+  try { localStorage.setItem("aiIndexTab", view); } catch {}
+}
+document.querySelector("nav.tabs").addEventListener("click", e => { const b = e.target.closest("button"); if (b) show(b.dataset.view); });
+
+// ---- 区间统计 ----
+function stats(from, to){ // 含两端，YYYY-MM-DD
+  const rows = D.daily.filter(r => r.date >= from && r.date <= to);
+  return {
+    sessions: rows.reduce((n, r) => n + (r.sessions||[]).length, 0),
+    outputs: rows.reduce((n, r) => n + (r.outputs||[]).filter(isNew).length, 0),
+    favs: D.favorites.filter(f => f.date >= from && f.date <= to).length,
+    days: new Set(rows.map(r => r.date)).size,
+  };
+}
+
+// ---- 日报 ----
+$("daySel").innerHTML = dates.map(d => `<option value="${d}">${d}</option>`).join("");
+function renderDay(date){
+  $("daySel").value = date;
+  const rows = D.daily.filter(r => r.date === date);
+  const migrated = rows.some(r => r.migrated);
+  $("dayInfo").textContent = migrated ? "首日 · 含迁入的历史成果" : "";
+  $("dayTitle").textContent = cnDate(date);
+  $("dayStory").innerHTML = BOTS.map(b => {
+    const r = rows.find(x => x.bot === b);
+    return `<p>${srcBadge(b)}${r ? esc(r.summary) : '<span class="missing">当天未提交日报</span>'}</p>`;
+  }).join("");
+  const today = stats(date, date), week = stats(addDays(date, -6), date);
+  const allOut = rows.reduce((n, r) => n + (r.outputs||[]).length, 0);
+  $("dayKpis").innerHTML =
+    kpi(today.sessions, "当天会话") +
+    kpi(today.outputs, migrated ? `新产出（另迁入 ${allOut - today.outputs} 项）` : "新产出 / 状态变化") +
+    kpi(D.candidates.length, "待确认收藏") +
+    kpi(week.sessions, "近 7 天会话");
+
+  $("dayCols").innerHTML = BOTS.map(bot => {
+    const r = rows.find(x => x.bot === bot);
+    if (!r) return `<div class="card bot ${bot}"><h3>${srcBadge(bot)}</h3><p class="missing">当天未提交日报</p></div>`;
+    return `<div class="card bot ${bot}">
+      <h3>${srcBadge(bot)} <span class="g">生成于 ${esc(r.generated)}</span></h3>
+      ${r.sessions?.length ? `<h4>会话 ${r.sessions.length}</h4><ul>${r.sessions.map(s => `<li><span class="tm">${esc(s.time)}</span><a href="${esc(s.link)}">${esc(s.title)}</a></li>`).join("")}</ul>` : ""}
+      ${r.outputs?.length ? `<h4>产出 ${r.outputs.length}</h4><ul>${r.outputs.map(o => `<li><span class="st ${o.status}">${ST[o.status]?.[0]||""}</span> ${esc(o.name)}<span class="sub">${esc(o.output)}${o.note?` ※ ${esc(o.note)}`:""}</span></li>`).join("")}</ul>` : `<h4>产出</h4><p class="missing">无</p>`}
+      ${r.pending?.length ? `<h4>未完成</h4><ul>${r.pending.map(p => `<li>⏳ ${esc(p)}</li>`).join("")}</ul>` : ""}
+      ${r.candidates?.length ? `<h4>收藏提名</h4><ul>${r.candidates.map(c => `<li>⭐ <code>${esc(c)}</code></li>`).join("")}</ul>` : ""}
+    </div>`;
+  }).join("");
+}
+const stepDay = n => { const i = dates.indexOf($("daySel").value) - n; if (dates[i]) renderDay(dates[i]); };
+$("daySel").addEventListener("change", e => renderDay(e.target.value));
+$("prevDay").addEventListener("click", () => stepDay(-1));
+$("nextDay").addEventListener("click", () => stepDay(1));
+if (dates.length) renderDay(dates[0]);
+else { $("dayTitle").textContent = "还没有日报"; }
+
+// ---- 本周 ----
+(function renderWeek(){
+  const w = [...D.weekly].sort((a,b) => String(b.week).localeCompare(String(a.week)))[0];
+  const to = w ? String(w.to).slice(0,10) : (dates[0] || iso(new Date()));
+  const from = w ? String(w.from).slice(0,10) : addDays(to, -6);
+  const s = stats(from, to);
+  $("weekKicker").textContent = w ? `周报 · ${w.from} ～ ${w.to}` : `近 7 天 · ${from} ～ ${to}`;
+  $("weekTitle").textContent = w ? `第 ${D.weekly.length} 期周报` : "本周周报将于周日 17:00 生成";
+  $("weekKpis").innerHTML = kpi(s.sessions, "会话") + kpi(s.outputs, "新产出") + kpi(s.favs, "新收藏") + kpi(s.days, "有记录的天数", '<small>/7</small>');
+  const sec = (title, items) => `<div class="card"><h3>${title}</h3>${items?.length
+    ? `<ul>${items.map(i => `<li>${srcBadge(i.bot)} ${esc(i.text)}</li>`).join("")}</ul>` : `<p class="missing">（无）</p>`}</div>`;
+  $("weekBody").innerHTML = w ? `<div class="weekgrid">${sec("✅ 完成了什么", w.done)}${sec("⏳ 未完成什么", w.todo)}${sec("⭐ 值得留存的新内容", w.keep)}</div>` : "";
+  const recent = dates.filter(d => d >= from && d <= to);
+  $("weekDays").innerHTML = recent.length ? recent.map(d => `<div class="d"><a href="#" data-day="${d}">${d.slice(5)} 周${WEEKDAY[toDate(d).getDay()]}</a><div>${
+    BOTS.map(b => { const r = D.daily.find(x => x.date===d && x.bot===b); return r ? `<div>${srcBadge(b)} ${esc(r.summary)}</div>` : ""; }).join("")}</div></div>`).join("")
+    : `<div class="empty">暂无</div>`;
+  $("weekDays").addEventListener("click", e => { const a = e.target.closest("[data-day]"); if (!a) return; e.preventDefault(); renderDay(a.dataset.day); show("day"); });
+})();
+
+// ---- 成果总表：每个 机器人+成果名 取最近一次 ----
+const ALL = (() => {
+  const m = new Map();
+  [...D.daily].sort((a,b) => a.date.localeCompare(b.date)).forEach(r =>
+    (r.outputs||[]).forEach(o => m.set(r.bot+"|"+o.name, {...o, bot:r.bot, last:r.date})));
+  return [...m.values()];
+})();
+const state = {src:"all", st:"all", q:""};
+function renderAll(){
+  const q = state.q.trim().toLowerCase();
+  const list = ALL.filter(it =>
+    (state.src==="all" || it.bot===state.src) &&
+    (state.st==="all" || it.status===state.st || (state.st==="arch" && it.status==="draft")) &&
+    (!q || [it.name,it.output,it.note,it.detail,it.category,...(it.links||[]).map(l=>l[1])].join(" ").toLowerCase().includes(q)));
+  $("count").textContent = `${list.length} / ${ALL.length}`;
+  const cats = [...GROUPS, ...new Set(ALL.map(i => i.category).filter(c => !GROUPS.includes(c)))];
+  const html = cats.map(g => {
+    const rows = list.filter(it => it.category===g);
+    if (!rows.length) return "";
+    return `<div class="gh"><span>${esc(g)}</span><span>${rows.length}</span></div>` + rows.map(it => `
+      <details class="item">
+        <summary>
+          <span class="ic st ${it.status}" title="${ST[it.status]?.[1]||""}">${ST[it.status]?.[0]||"·"}</span>
+          <span class="nm">${esc(it.name)}${srcBadge(it.bot)}</span>
+          <span class="rt">${esc(isNew(it) ? it.last.slice(5) : it.since)}</span>
+        </summary>
+        <div class="bd">
+          <div>${esc(it.output)}</div>
+          ${it.note ? `<div>※ ${esc(it.note)}</div>` : ""}
+          ${it.links?.length ? `<div class="links">${linkHtml(it.links)}</div>` : ""}
+          ${it.detail ? `<div class="dt">${esc(it.detail)}</div>` : ""}
+        </div>
+      </details>`).join("");
+  }).join("");
+  $("groups").innerHTML = html || `<div class="empty">没有匹配的成果</div>`;
+}
+$("filters").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  state[b.dataset.k] = b.dataset.v;
+  document.querySelectorAll(`#filters .chip[data-k="${b.dataset.k}"]`).forEach(c => c.setAttribute("aria-pressed", c===b));
+  renderAll();
+});
+$("q").addEventListener("input", e => { state.q = e.target.value; renderAll(); });
+renderAll();
+
+// ---- 收藏 ----
+const favCard = (f, pending) => `<div class="card fav${pending ? " pending" : ""}">
+  <div class="top"><span class="cat">${esc(f.category || "未分类")}</span>${srcBadge(f.bot)}</div>
+  <div class="title">${esc(f.title)}</div>
+  ${f.reason ? `<div class="reason">${esc(f.reason)}</div>` : ""}
+  ${f.body ? `<div class="peek">${esc(f.body)}</div>
+    <details><summary>展开原文</summary><pre>${esc(f.body)}</pre></details>` : ""}
+  <div class="foot">
+    <span>${esc(f.date)}${f.source ? ` · <a href="${esc(f.source)}">原对话</a>` : ""}</span>
+    <span class="acts">
+      ${pending ? `<button class="btn primary copy" data-copy="收下 ${esc(f.id)}">复制收下</button>` : ""}
+      ${f.body ? `<button class="btn copy" data-copy="${esc(f.body)}">复制原文</button>` : ""}
+    </span>
+  </div>
+</div>`;
+$("pendCount").textContent = D.candidates.length;
+if (D.candidates.length) {
+  $("pendList").innerHTML = D.candidates.map(f => favCard(f, true)).join("");
+  $("pendBadge").hidden = false; $("pendBadge").textContent = D.candidates.length;
+} else $("pendWrap").hidden = true;
+function renderFav(){
+  const q = $("fq").value.trim().toLowerCase();
+  const list = [...D.favorites].sort((a,b) => String(b.date).localeCompare(String(a.date)))
+    .filter(f => !q || [f.title,f.body,f.category,f.reason].join(" ").toLowerCase().includes(q));
+  $("favCount").textContent = D.favorites.length;
+  if (!list.length) { $("favList").innerHTML = `<div class="card empty" style="margin-top:14px">${D.favorites.length ? "没有匹配的收藏" : "收藏库还是空的 · 在聊天里说「收藏这段」就会出现在这里"}</div>`; return; }
+  const cats = [...new Set(list.map(f => f.category || "未分类"))];
+  $("favList").innerHTML = cats.map(c => `<div class="favgroup"><h3>${esc(c)}</h3><div class="cards">${
+    list.filter(f => (f.category || "未分类") === c).map(f => favCard(f, false)).join("")}</div></div>`).join("");
+}
+$("fq").addEventListener("input", renderFav);
+renderFav();
+
+// ---- 通用 ----
+document.addEventListener("click", async e => {
+  const b = e.target.closest(".copy"); if (!b) return;
+  const old = b.textContent;
+  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = "已复制"; b.classList.add("done"); }
+  catch { b.textContent = "复制失败"; }
+  setTimeout(() => { b.textContent = old; b.classList.remove("done"); }, 1500);
+});
+$("themeBtn").addEventListener("click", () => {
+  const root = document.documentElement;
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+});
+try { const t = localStorage.getItem("aiIndexTab"); if (t && $("v-"+t)) show(t); } catch {}
+</script>
+</body>
+</html>
