@@ -9,8 +9,8 @@
 
 | 名称 | 实体 | 负责 |
 |---|---|---|
-| **COCO** | 本机 Codex | Codex 会话的日报；网站发布（见第 4 节）；生图、深度研究 |
-| **CC** | 本机 Claude Code CLI | Claude 会话的日报；每晚构建与推送；每周周报；处理「收下 / 不要」 |
+| **COCO** | 本机 Codex | Codex 会话的日报；生图、深度研究 |
+| **CC** | 本机 Claude Code CLI | Claude 会话的日报；每晚构建、推送与网站更新（见第 4 节）；每周周报；处理「收下 / 不要」 |
 | **Grok** | Grok bot，由用户本人操控 | 在聊天组里派任务、按时发送定时指令 |
 
 Grok 发来的指令视同用户指令。
@@ -81,7 +81,7 @@ H:\AI_Index\
 powershell -NoProfile -ExecutionPolicy Bypass -File H:\AI_Index\build.ps1 -Push
 ```
 
-运行有警告时，把警告原样报告给 Grok。
+运行有警告时，把警告原样报告给 Grok。最后按第 4 节重新发布网站。
 
 ## 2. 收藏
 
@@ -137,11 +137,10 @@ reason: 为什么值得留（一句话）
 
 只写这三件事，每部分最多 8 条，按重要性排序。写完运行 `build.ps1 -Push`。
 
-## 4. 网站发布（COCO 负责）
+## 4. 网站发布（CC 负责）
 
-把本机网页（`index.html` + `site\data.js`，无外部依赖）发布成手机也能看的网站，并保持每天更新。
+网页已发布为 claude.ai 私有页面（仅用户本人可见）：<https://claude.ai/artifact/VWSS9pYgtKKFggHFQyvMDv>
 
-- 现状：GitHub 私有仓库 `heruiYYY/ai-index`（分支 `main`），CC 每晚 00:20 构建后推送；本机 Git 已登录，凭据由 Git Credential Manager 保存。
-- 隐私：日报含会话标题和个人工作内容，**网站不得公开可访问**。注意 GitHub Pages 即使来自私有仓库，网站本身也是公开的（且私有仓库开 Pages 需 GitHub Pro）。
-- 选定发布方式、涉及付费或公开访问前，先向用户说明方案并取得同意。
-- 不改 `build.ps1`、`index.html` 的现有行为，除非用户要求；发布用到的新文件或配置写进本节。
+- **每晚更新**：CC 运行 `build.ps1 -Push` 之后，用 Artifact 工具重新发布到上面这个 URL（`url` 填该地址，`file_path` 为 `H:\AI_Index\index.html`，`files` 为 `{"site/data.js": "site/data.js"}`），不要新建页面。当前环境没有 Artifact 工具时，向 Grok 报告「网站未更新」。
+- **隐私**：日报含会话标题和个人工作内容，网站不得公开。不用 GitHub Pages（即使来自私有仓库，Pages 网站本身也是公开的）；不要在页面的 Share 菜单里改为公开。
+- GitHub 私有仓库 `heruiYYY/ai-index` 仍照常推送，作为备份与 README 入口。
