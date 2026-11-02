@@ -1,0 +1,167 @@
+{
+    "outputs":  [
+                    {
+                        "since":  "11-02",
+                        "name":  "白发雷尊_15s战斗提示词_雷龙冲击版",
+                        "output":  "8–15s 改为远距离熔岩雷龙特效冲击，去掉贴脸肉搏／重锤横扫／拳拳到肉，并加负面提示词",
+                        "note":  "存 1101 文件夹",
+                        "links":  [
+                                      [
+                                          "文件",
+                                          "file:///H:/百度网盘下载/00_百度网盘_WIN/BaiduSyncdisk/MAC-to-WIN/1101/白发雷尊_15s战斗提示词_雷龙冲击版.md"
+                                      ],
+                                      [
+                                          "会话",
+                                          "claude-code://2c828440-6945-4180-a11d-c6818fe89447"
+                                      ]
+                                  ],
+                        "category":  "提示词",
+                        "status":  "ok"
+                    },
+                    {
+                        "since":  "11-02",
+                        "category":  "提示词",
+                        "name":  "灵笼_追逐_v2 Seedance 临摹提示词",
+                        "status":  "ok",
+                        "output":  "最新版全31镜中文重写 v2（32 条／17 段结构）；另有临摹指南、全片中文版、对话总结与交接",
+                        "note":  "尚未在 Seedance 实测；占位符与首帧需用户替换",
+                        "detail":  "同日还产出 Seedance临摹指南、英文逐镜旧版、中文翻译版、全片中文版／v3、中文重写版与 v2、男主全身图提示词、第一段首帧提示词等；以中文重写版_v2 与对话总结与交接为准。",
+                        "links":  [
+                                      [
+                                          "最新提示词",
+                                          "file:///H:/百度网盘下载/00_百度网盘_WIN/BaiduSyncdisk/MAC-to-WIN/0002/灵笼_追逐_v2_inbox/灵笼_追逐_v2_全31镜提示词_中文重写版_v2.md"
+                                      ],
+                                      [
+                                          "交接",
+                                          "file:///H:/百度网盘下载/00_百度网盘_WIN/BaiduSyncdisk/MAC-to-WIN/0002/灵笼_追逐_v2_inbox/灵笼_追逐_v2_对话总结与交接.md"
+                                      ],
+                                      [
+                                          "会话",
+                                          "claude-code://a43fcf54-afa6-40f8-8b60-11831029fa57"
+                                      ]
+                                  ]
+                    },
+                    {
+                        "since":  "11-02",
+                        "name":  "灵笼临摹硬约束",
+                        "output":  "不上传原视频（运镜全写文字）；新男主不要尾巴；提示词中文、硬切、不用性别代词、不写 IP 名",
+                        "links":  [
+                                      [
+                                          "交接",
+                                          "file:///H:/百度网盘下载/00_百度网盘_WIN/BaiduSyncdisk/MAC-to-WIN/0002/灵笼_追逐_v2_inbox/灵笼_追逐_v2_对话总结与交接.md"
+                                      ],
+                                      [
+                                          "会话",
+                                          "claude-code://b919f851-ad97-42da-9b96-e58e99e652bd"
+                                      ]
+                                  ],
+                        "category":  "协作与约定",
+                        "status":  "rule"
+                    },
+                    {
+                        "since":  "11-02",
+                        "name":  "Claude 技能包安装（acting / cinedance / higgsfield-tig）",
+                        "output":  "桌面会话安装三个相关技能，并处理 skills-upload 技能包",
+                        "links":  [
+                                      [
+                                          "安装会话",
+                                          "claude-code://0f0748dc-e1f0-47ee-8757-1aeeb2e466c0"
+                                      ],
+                                      [
+                                          "技能包会话",
+                                          "claude-code://b73ba90a-6f40-462a-acfa-f08bd92414e7"
+                                      ]
+                                  ],
+                        "category":  "工具",
+                        "status":  "ok"
+                    },
+                    {
+                        "since":  "11-02",
+                        "name":  "Higgsfield MCP 文档查阅",
+                        "output":  "查阅 https://mcp.higgsfield.ai/mcp 相关说明",
+                        "links":  [
+                                      [
+                                          "会话",
+                                          "claude-code://7589a026-1857-4921-a342-06ed9e9718f1"
+                                      ]
+                                  ],
+                        "category":  "工具",
+                        "status":  "arch"
+                    },
+                    {
+                        "since":  "11-02",
+                        "name":  "CLI 大媒体请求 API 超时",
+                        "output":  "含视频+29 张镜头图的灵笼任务在旧会话与新会话均 No response from API；短「OK」测试正常",
+                        "note":  "任务已暂停；产出改由桌面会话完成",
+                        "links":  [
+                                      [
+                                          "旧会话",
+                                          "claude-code://2c828440-6945-4180-a11d-c6818fe89447"
+                                      ],
+                                      [
+                                          "新会话",
+                                          "claude-code://f772b6ea-c6b9-4b83-aafc-05c191699234"
+                                      ]
+                                  ],
+                        "category":  "运维",
+                        "status":  "wip"
+                    }
+                ],
+    "pending":  [
+                    "灵笼全31镜提示词尚未 Seedance 实测，待用户反馈后再改",
+                    "CLI 大请求 API 超时问题未根治（短请求正常）"
+                ],
+    "candidates":  [
+                       "2026-11-02-cc-01",
+                       "2026-11-02-cc-02",
+                       "2026-11-02-cc-03"
+                   ],
+    "sessions":  [
+                     {
+                         "time":  "13:21",
+                         "link":  "claude-code://2c828440-6945-4180-a11d-c6818fe89447",
+                         "title":  "CLI 续聊：白发雷尊 8–15s 改雷龙冲击；灵笼任务首次超时",
+                         "id":  "2c828440-6945-4180-a11d-c6818fe89447"
+                     },
+                     {
+                         "time":  "15:41",
+                         "link":  "claude-code://f772b6ea-c6b9-4b83-aafc-05c191699234",
+                         "title":  "CLI 新会话：连通测试 OK；灵笼大请求再次 API 无响应后暂停",
+                         "id":  "f772b6ea-c6b9-4b83-aafc-05c191699234"
+                     },
+                     {
+                         "time":  "16:27",
+                         "link":  "claude-code://a43fcf54-afa6-40f8-8b60-11831029fa57",
+                         "title":  "桌面：灵笼追逐视频临摹方案（逐镜分析与提示词主产出）",
+                         "id":  "a43fcf54-afa6-40f8-8b60-11831029fa57"
+                     },
+                     {
+                         "time":  "22:18",
+                         "link":  "claude-code://b919f851-ad97-42da-9b96-e58e99e652bd",
+                         "title":  "桌面：继续灵笼追逐 v2 Seedance 临摹（交接与后续镜）",
+                         "id":  "b919f851-ad97-42da-9b96-e58e99e652bd"
+                     },
+                     {
+                         "time":  "22:23",
+                         "link":  "claude-code://7589a026-1857-4921-a342-06ed9e9718f1",
+                         "title":  "桌面：查阅 Higgsfield MCP 文档",
+                         "id":  "7589a026-1857-4921-a342-06ed9e9718f1"
+                     },
+                     {
+                         "time":  "22:41",
+                         "link":  "claude-code://0f0748dc-e1f0-47ee-8757-1aeeb2e466c0",
+                         "title":  "桌面：安装三个技能（acting-performance / cinedance / higgsfield-tig）",
+                         "id":  "0f0748dc-e1f0-47ee-8757-1aeeb2e466c0"
+                     },
+                     {
+                         "time":  "23:16",
+                         "link":  "claude-code://b73ba90a-6f40-462a-acfa-f08bd92414e7",
+                         "title":  "桌面：技能包安装（acting-performance.zip 等）",
+                         "id":  "b73ba90a-6f40-462a-acfa-f08bd92414e7"
+                     }
+                 ],
+    "bot":  "CC",
+    "summary":  "改写白发雷尊雷龙冲击提示词；桌面端完成灵笼追逐 v2 Seedance 临摹全31镜中文重写；CLI 大请求两次 API 超时。",
+    "date":  "2026-11-02",
+    "generated":  "2026-11-03T00:28+08:00"
+}
