@@ -1,0 +1,41 @@
+{
+    "date":  "2026-11-03",
+    "bot":  "COCO",
+    "generated":  "2026-11-04T00:10+08:00",
+    "summary":  "用 tig-blocking-map 为 SNOW 七镜长图定稿 7 条 MAP 提示词。",
+    "sessions":  [
+                     {
+                         "time":  "01:58",
+                         "title":  "★ 提示词 · SNOW 七镜 MAP 图",
+                         "id":  "01a19d69-b978-7983-95da-8a52a0586510",
+                         "link":  "codex://threads/01a19d69-b978-7983-95da-8a52a0586510"
+                     }
+                 ],
+    "outputs":  [
+                    {
+                        "category":  "提示词",
+                        "name":  "★ SNOW 七镜 MAP 提示词",
+                        "status":  "ok",
+                        "since":  "11-03",
+                        "output":  "7 条独立 MAP 提示词（蓝轮廓角色、2.35:1、staging/loc 标签与颜色键），覆盖脸部/登坡/腿脚/肩背等镜位",
+                        "note":  "技能第 1 步产出；项目名暂用 SNOW",
+                        "detail":  "MAP 01 脸部极近特写；02 侧面远景登坡；03 腿脚局部特写；04 后侧肩部近景；05 背面远景登坡；06 后脑与背肩近景；07 正面低头近景",
+                        "links":  [
+                                      [
+                                          "原对话",
+                                          "codex://threads/01a19d69-b978-7983-95da-8a52a0586510"
+                                      ],
+                                      [
+                                          "技能",
+                                          "file:///C:/Users/Administrator/.codex/skills/higgsfield-tig-blocking-map/SKILL.md"
+                                      ]
+                                  ]
+                    }
+                ],
+    "pending":  [
+
+                ],
+    "candidates":  [
+                       "2026-11-03-coco-01"
+                   ]
+}

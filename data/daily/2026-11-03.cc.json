@@ -1,0 +1,178 @@
+{
+    "outputs":  [
+                    {
+                        "since":  "11-03",
+                        "category":  "提示词",
+                        "name":  "灵笼_追逐_v2_第一段_孤行_提示词_v8",
+                        "status":  "ok",
+                        "output":  "按 v7 实测改写：白模只管运镜站位；用户小改出 v8-2，画面可接受并作选镜底稿",
+                        "note":  "同目录另有 v7／v9；以 v8.md 与实测视频 v8-2 为准",
+                        "detail":  "工具即梦 Seedance 2.5；上传定妆／场景／无人物白模／原片音频。v8-2 前五个切点差 0–1 帧，S03≈12.5%。",
+                        "links":  [
+                                      [
+                                          "v8 提示词",
+                                          "file:///H:/百度网盘下载/00_百度网盘_WIN/BaiduSyncdisk/MAC-to-WIN/0002/灵笼_追逐_v2_inbox/02_提示词/01_当前版本/灵笼_追逐_v2_第一段_孤行_提示词_v8.md"
+                                      ],
+                                      [
+                                          "会话",
+                                          "claude-code://a141b6d4-9f49-494f-a03c-cfd28c5a3bfc"
+                                      ]
+                                  ]
+                    },
+                    {
+                        "since":  "11-03",
+                        "name":  "国产动漫临摹复盘_可复用的AI视频制作经验",
+                        "output":  "总结临摹流程改点、v5–v8-2 对照、规避表与返工分层；附流程图与对话整理",
+                        "links":  [
+                                      [
+                                          "复盘文档",
+                                          "file:///H:/百度网盘下载/00_百度网盘_WIN/BaiduSyncdisk/MAC-to-WIN/0002/灵笼临摹复盘汇报_2026-11-03/国产动漫临摹复盘_可复用的AI视频制作经验.md"
+                                      ],
+                                      [
+                                          "会话",
+                                          "claude-code://43a57eeb-95eb-4091-8858-ee756745c674"
+                                      ]
+                                  ],
+                        "category":  "研究与课程",
+                        "status":  "ok"
+                    },
+                    {
+                        "since":  "11-03",
+                        "name":  "Seedance 白模与线稿控制约定",
+                        "output":  "无人物白模默认；简单线稿只控比例；测好版本只小改；靠选镜消化随机差异；雪上不写红色",
+                        "links":  [
+                                      [
+                                          "记忆",
+                                          "file:///C:/Users/Administrator/.claude/projects/H--01-Work------AI------/memory/lingcage-seedance-reference-video-lessons.md"
+                                      ],
+                                      [
+                                          "会话",
+                                          "claude-code://a141b6d4-9f49-494f-a03c-cfd28c5a3bfc"
+                                      ]
+                                  ],
+                        "category":  "协作与约定",
+                        "status":  "rule"
+                    },
+                    {
+                        "since":  "11-03",
+                        "name":  "灵笼制作决定（Seedance 2.5／原片画风／char_make_v6）",
+                        "output":  "定工具为即梦 Seedance 2.5、统一原片风格化 3D、主角用 char_make_v6、允许剪辑调色与原片音频",
+                        "links":  [
+                                      [
+                                          "记忆",
+                                          "file:///C:/Users/Administrator/.claude/projects/H--01-Work------AI------/memory/lingcage-production-decisions.md"
+                                      ],
+                                      [
+                                          "会话",
+                                          "claude-code://280599e0-0b93-4130-838c-1f01ea12c46f"
+                                      ]
+                                  ],
+                        "category":  "协作与约定",
+                        "status":  "rule"
+                    },
+                    {
+                        "since":  "11-03",
+                        "name":  "灵笼运镜测量与白模资产整理",
+                        "output":  "完善 07_运镜测量工具脚本；整理 05_白模预演四段资产与重渲校验流程；同步盘误删后恢复并外置备份",
+                        "note":  "备份在 H:\\01_Work\\个人创作\\AI智能视频生成\\_灵笼白模备份_20261103",
+                        "links":  [
+                                      [
+                                          "白模位置说明",
+                                          "file:///C:/Users/Administrator/.claude/projects/H--01-Work------AI------/memory/lingcage-previs-location.md"
+                                      ],
+                                      [
+                                          "会话",
+                                          "claude-code://0f0748dc-e1f0-47ee-8757-1aeeb2e466c0"
+                                      ]
+                                  ],
+                        "category":  "工具",
+                        "status":  "ok"
+                    },
+                    {
+                        "since":  "11-03",
+                        "name":  "男主上半身特写与腿部显长修图",
+                        "output":  "男主上半身特写（定妆+线稿+材质球）；另有拉长腿部比例的修图讨论与预览",
+                        "links":  [
+                                      [
+                                          "特写会话",
+                                          "claude-code://60446593-dcda-41b3-86ea-4dce94111e45"
+                                      ],
+                                      [
+                                          "腿部会话",
+                                          "claude-code://0e379551-e647-43a9-b751-87df65876527"
+                                      ]
+                                  ],
+                        "category":  "提示词",
+                        "status":  "draft"
+                    }
+                ],
+    "pending":  [
+                    "第二到第四段（S08–S31）提示词尚未按新标准更新，也未实测",
+                    "从 v8／v8-2 完成第一段选镜与精剪（S06 偏长等）"
+                ],
+    "candidates":  [
+                       "2026-11-03-cc-01",
+                       "2026-11-03-cc-02",
+                       "2026-11-03-cc-03"
+                   ],
+    "sessions":  [
+                     {
+                         "time":  "00:10",
+                         "link":  "claude-code://280599e0-0b93-4130-838c-1f01ea12c46f",
+                         "title":  "桌面：Acting／制作决定与第一段首次实测准备",
+                         "id":  "280599e0-0b93-4130-838c-1f01ea12c46f"
+                     },
+                     {
+                         "time":  "00:10",
+                         "link":  "claude-code://ec9de1d1-da42-4175-a5d7-16b066884b10",
+                         "title":  "桌面：Acting performance 相关短会话",
+                         "id":  "ec9de1d1-da42-4175-a5d7-16b066884b10"
+                     },
+                     {
+                         "time":  "00:46",
+                         "link":  "claude-code://60446593-dcda-41b3-86ea-4dce94111e45",
+                         "title":  "桌面：男主上半身特写生成",
+                         "id":  "60446593-dcda-41b3-86ea-4dce94111e45"
+                     },
+                     {
+                         "time":  "01:03",
+                         "link":  "claude-code://0e379551-e647-43a9-b751-87df65876527",
+                         "title":  "桌面：腿部显长修图技巧",
+                         "id":  "0e379551-e647-43a9-b751-87df65876527"
+                     },
+                     {
+                         "time":  "02:00",
+                         "link":  "claude-code://0f0748dc-e1f0-47ee-8757-1aeeb2e466c0",
+                         "title":  "桌面：技能与白模资产／运镜测量（续）",
+                         "id":  "0f0748dc-e1f0-47ee-8757-1aeeb2e466c0"
+                     },
+                     {
+                         "time":  "15:03",
+                         "link":  "claude-code://7238d7bf-2fdd-48fd-93e9-12a3de196d0a",
+                         "title":  "桌面：检索文件夹 灵笼_追逐_v2",
+                         "id":  "7238d7bf-2fdd-48fd-93e9-12a3de196d0a"
+                     },
+                     {
+                         "time":  "16:38",
+                         "link":  "claude-code://a141b6d4-9f49-494f-a03c-cfd28c5a3bfc",
+                         "title":  "桌面：灵笼追逐视频测试问题（v7–v9／v8-2）",
+                         "id":  "a141b6d4-9f49-494f-a03c-cfd28c5a3bfc"
+                     },
+                     {
+                         "time":  "20:53",
+                         "link":  "claude-code://43a57eeb-95eb-4091-8858-ee756745c674",
+                         "title":  "桌面：国产动漫临摹流程总结（复盘文档）",
+                         "id":  "43a57eeb-95eb-4091-8858-ee756745c674"
+                     },
+                     {
+                         "time":  "23:40",
+                         "link":  "claude-code://f2ca4252-5db4-4905-aea6-472d584cf87a",
+                         "title":  "桌面：iPad 投屏到 MacBook Pro",
+                         "id":  "f2ca4252-5db4-4905-aea6-472d584cf87a"
+                     }
+                 ],
+    "bot":  "CC",
+    "summary":  "灵笼第一段 Seedance 多轮实测定 v8-2；写出临摹复盘与白模／线稿控制约定。",
+    "date":  "2026-11-03",
+    "generated":  "2026-11-04T00:25+08:00"
+}
