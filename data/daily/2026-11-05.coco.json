@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-05",
+  "bot": "COCO",
+  "generated": "2026-11-06T00:12+08:00",
+  "summary": "确认 Higgsfield Blender MCP 已可用，无需重装",
+  "sessions": [
+    {
+      "time": "21:40",
+      "title": "工具 · 安装 Blender MCP",
+      "id": "01a1abf0-1d7a-70e1-9ec3-2ff74acbd097",
+      "link": "codex://threads/01a1abf0-1d7a-70e1-9ec3-2ff74acbd097"
+    }
+  ],
+  "outputs": [
+    {
+      "category": "工具",
+      "name": "Higgsfield Blender MCP 可用确认",
+      "status": "ok",
+      "since": "11-05",
+      "output": "本机已连接可用的 Higgsfield Blender MCP，无需重复安装；可建模/材质/渲染/存 .blend",
+      "note": "控制独立后台 Blender，不能直接操作桌面已打开窗口",
+      "detail": "会话中 bl_health / bl_get_scene_summary 成功，读到立方体、灯光与相机",
+      "links": [
+        [
+          "原对话",
+          "codex://threads/01a1abf0-1d7a-70e1-9ec3-2ff74acbd097"
+        ]
+      ]
+    }
+  ],
+  "pending": [],
+  "candidates": []
+}
